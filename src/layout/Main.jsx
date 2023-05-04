@@ -6,13 +6,11 @@ import Footer from '../components/Footer';
 const Main = () => {
     return (
         <div className=''>
-            <div className=''>
-                <Header></Header>
-            </div>
-            <div>
+            <Header></Header>
+            <div className='min-h-[1000px]'>
                 <Outlet></Outlet>
-                <Footer></Footer>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

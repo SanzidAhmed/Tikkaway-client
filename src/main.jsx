@@ -10,6 +10,7 @@ import {
 import Main from './layout/Main.jsx';
 import Home from './components/Home.jsx';
 import Chef from './components/Chef.jsx';
+import ChefDetails from './components/ChefDetails.jsx';
 
 
 const router = createBrowserRouter([
@@ -19,11 +20,13 @@ const router = createBrowserRouter([
     children:[
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('https://tikkaway-server-sanzidahmed.vercel.app/chef')
       },
       {
-        path: "/",
-        element: <Chef></Chef>
+        path: "/chef/:id",
+        element: <ChefDetails></ChefDetails>,
+        loader:  ({params}) => fetch(`https://tikkaway-server-sanzidahmed.vercel.app/chef/${params.id}`)
       }
     ]
   },

@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react';
+
 import ChefCard from './ChefCard';
+import { useLoaderData } from 'react-router-dom';
 
 const Chef = () => {
-    const [chefs, setChefs] = useState([]);
-
-    useEffect(() => {
-        fetch('https://tikkaway-server-sanzidahmed.vercel.app/chef')
-            .then(res => res.json())
-            .then(data => setChefs(data))
-    }, [])
+    const chefs = useLoaderData();
     return (
         <div className='md:bg-yellow-100'>
             <div className='container mx-auto pb-20'>

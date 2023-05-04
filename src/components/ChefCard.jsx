@@ -1,8 +1,9 @@
 import React from 'react';
 import { HandThumbUpIcon } from '@heroicons/react/24/solid'
+import { Link } from 'react-router-dom';
 
 const ChefCard = ({ chef }) => {
-    const { chefName, chefPicture, yearsExperience, likes, recipes } = chef;
+    const { id, chefName, chefPicture, yearsExperience, likes, recipes, numRecipes } = chef;
 
     return (
         <div>
@@ -11,11 +12,12 @@ const ChefCard = ({ chef }) => {
                     <img src={chefPicture} alt="Shoes" className="rounded-xl md:h-48 md:w-full" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">{chefName}</h2>
+                    <h2 className="card-title text-4xl text-red-600">{chefName}</h2>
+                    <p><span className='font-bold'>Numbers of recipes: </span> {numRecipes}</p>
                     <ol className=' ml-0'>
                         <h1 className='font-semibold text-base underline'>Special Recipe</h1>
                         {
-                            recipes.map(recipe => <li>{recipe.recipeName}</li>)
+                            recipes.map((recipe, index) => <li key={index}>{recipe.recipeName}</li>)
                         }
                     </ol>
                     <div className='md:flex md:gap-10'>
@@ -23,7 +25,7 @@ const ChefCard = ({ chef }) => {
                         <p className='inline-flex gap-1'><span className='font-bold'>Likes:</span> {likes}<HandThumbUpIcon className="h-6 w-6 text-gray-500" /></p>
                     </div>
                     <div className="card-actions">
-                        <button className="btn btn-primary  bg-yellow-500 border-white">View details</button>
+                        <Link to={`/chef/${id}`}><button className="btn btn-primary  bg-yellow-500 border-white">View details</button></Link>
                     </div>
                 </div>
             </div>
