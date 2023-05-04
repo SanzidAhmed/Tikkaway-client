@@ -12,7 +12,7 @@ const ChefCard = ({ chef }) => {
                     <img src={chefPicture} alt="Shoes" className="rounded-xl md:h-48 md:w-full" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title text-4xl text-red-600">{chefName}</h2>
+                    <h2 className="card-title text-4xl text-yellow-400">{chefName}</h2>
                     <p><span className='font-bold'>Numbers of recipes: </span> {numRecipes}</p>
                     <ol className=' ml-0'>
                         <h1 className='font-semibold text-base underline'>Special Recipe</h1>

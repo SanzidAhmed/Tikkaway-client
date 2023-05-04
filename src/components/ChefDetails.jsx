@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HandThumbUpIcon } from '@heroicons/react/24/solid'
 import { useLoaderData, useParams } from 'react-router-dom';
+import ChefRecipe from './ChefRecipe';
 
 const ChefDetails = () => {
-
+    // const [chefRecipe, setChefRecipe] = useState('')
     const chefDetails = useLoaderData();
-    const { chefName, chefPicture, numRecipes, bio, yearsExperience, likes } = chefDetails;
-
+    const { chefName, chefPicture, numRecipes, bio, yearsExperience, likes, recipes } = chefDetails;
+    // for(const prop in recipes[0]){
+    //     setChefRecipe(recipes[0][prop]);
+    // }
+    // console.log(chefRecipe);
     return (
-        <div className='container mx-auto mt-16'>
+        <div className='container mx-auto pt-16'>
             <div className="card card-compact w-2/4 bg-base-100 shadow-xl mx-auto">
                 <figure><img src={chefPicture} alt="Shoes" className='w-screen h-96' /></figure>
                 <div className="card-body text-center">
                     <h1 className='text-4xl'>{chefName}</h1>
+                    <h4>{ }</h4>
                     <p>{bio}</p>
                     <p><span className='font-bold text-xl'>Numbers of recipes: </span> {numRecipes}</p>
                     <div className='md:flex mx-auto gap-8'>
@@ -21,6 +26,15 @@ const ChefDetails = () => {
                     </div>
                 </div>
             </div>
+            <div className='grid grid-cols-3'>
+                {
+                    recipes.map((recipe, index) => <ChefRecipe
+                        key={index}
+                        recipe={recipe}
+                    ></ChefRecipe>)
+                }
+            </div>
+            {/* <ChefRecipe></ChefRecipe> */}
         </div>
     );
 };

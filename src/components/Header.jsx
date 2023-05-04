@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <div className=''>
-            <div className=' bg-yellow-100'>
+            <div className=' bg-amber-300'>
                 <div className="navbar container mx-auto ">
                     <div className="flex-1">
                         <img className='w-14' src="https://i.ibb.co/p46dLVy/Borcelle-removebg-preview.png" alt="" />
