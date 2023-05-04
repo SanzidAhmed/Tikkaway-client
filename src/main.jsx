@@ -11,13 +11,16 @@ import Main from './layout/Main.jsx';
 import Home from './components/Home.jsx';
 import Chef from './components/Chef.jsx';
 import ChefDetails from './components/ChefDetails.jsx';
+import Login from './components/Login.jsx';
+import Register from './components/Register.jsx';
+import AuthProvider from './provider/AuthProvider.jsx';
 
 
 const router = createBrowserRouter([
   {
-    path:"/",
+    path: "/",
     element: <Main></Main>,
-    children:[
+    children: [
       {
         path: "/",
         element: <Home></Home>,
@@ -26,7 +29,15 @@ const router = createBrowserRouter([
       {
         path: "/chef/:id",
         element: <ChefDetails></ChefDetails>,
-        loader:  ({params}) => fetch(`https://tikkaway-server-sanzidahmed.vercel.app/chef/${params.id}`)
+        loader: ({ params }) => fetch(`https://tikkaway-server-sanzidahmed.vercel.app/chef/${params.id}`)
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
       }
     ]
   },
@@ -34,6 +45,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

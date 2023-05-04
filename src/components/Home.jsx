@@ -4,7 +4,7 @@ import Chef from './Chef';
 
 const Home = () => {
     return (
-        <div>
+        <div className='bg-orange-400'>
             <HeaderBanner></HeaderBanner>
             <Chef></Chef>
         </div>
