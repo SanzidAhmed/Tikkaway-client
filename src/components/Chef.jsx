@@ -24,7 +24,7 @@ const Chef = () => {
                             <button className="btn btn-secondary absolute right-24 bg-amber-300 border-white">Search</button>
                         </div>
                         <div className='mt-20 mx-20 p-4 border border-amber-300'>
-                            <div className='flex gap-8 items-center'>
+                            <div className='md:flex gap-8 items-center'>
                                 <div className='text-left'>
                                     <h3 className='text-lg font-bold text-black'>AUTHOR</h3>
                                     <h1 className='text-3xl font-bold text-white'>Sandra Fortin</h1>
