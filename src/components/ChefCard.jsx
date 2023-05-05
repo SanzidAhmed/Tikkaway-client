@@ -25,7 +25,7 @@ const ChefCard = ({ chef }) => {
                         <p className='inline-flex gap-1'><span className='font-bold'>Likes:</span> {likes}<HandThumbUpIcon className="h-6 w-6 text-gray-500" /></p>
                     </div>
                     <div className="card-actions">
-                        <Link to={`/chef/${id}`}><button className="btn btn-primary  bg-yellow-500 border-white">View details</button></Link>
+                        <Link to={`/chef/${id}`}><button className="btn btn-primary  bg-amber-300 border-white">View details</button></Link>
                     </div>
                 </div>
             </div>
