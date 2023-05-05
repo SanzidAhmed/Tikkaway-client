@@ -6,10 +6,8 @@ const Footer = () => {
             <footer className="container mx-auto footer px-10 py-20  text-slate-50">
                 <div>
                     <span className="footer-title">Services</span>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <a className="link link-hover">Home Delivery</a>
+                    <a className="link link-hover">Event Organize</a>
                 </div>
                 <div>
                     <span className="footer-title">Company</span>

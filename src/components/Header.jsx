@@ -29,7 +29,7 @@ const Header = () => {
                                     <img src={user.photoURL} />
                                 </div>
                             </label>}
-                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                            {user &&<ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                                 <li>
                                     <a className="justify-between">
                                         Profile
@@ -37,8 +37,8 @@ const Header = () => {
                                     </a>
                                 </li>
                                 <li><a>Settings</a></li>
-                                {user && <li onClick={handleLogout}><a>Logout</a></li>}
-                            </ul>
+                                <li onClick={handleLogout}><a>Logout</a></li>
+                            </ul>}
                         </div>
                     </div>
                 </div>

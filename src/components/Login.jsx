@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext);
-
+    const { signIn, signInGoogle, signInGithub } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('');
-    
+
     const handleLogin = event => {
         event.preventDefault();
         setSuccess('')
@@ -17,19 +19,36 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
         signIn(email, password)
-        .then(result => {
-            const loggedUser = result.user;
-            setError('')
-            form.reset();
-            setSuccess('login successfully');
-            console.log(result.user);
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                setError('')
+                form.reset();
+                setSuccess('login successfully');
+                console.log(result.user);
+            })
+            .catch(error => {
+                setError(error.message);
+
+            })
+    }
+    const handleGoogleLogin = (provider) => {
+        setSuccess('')
+        signInGoogle(googleProvider)
+            .then(result => {setSuccess('successfully login with google') })
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
+            })
+    }
+
+    const handleGithubLogin = (provider) => {
+        signInGithub(githubProvider)
+        .then(result => {setSuccess('successfully login with github') })
         .catch(error => {
+            console.error(error);
             setError(error.message);
-            
         })
     }
-    
 
     return (
         <div>
@@ -45,7 +64,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered" required/>
+                                <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -64,6 +83,11 @@ const Login = () => {
                             <label className="label">
                                 <Link to="/register">Don't have account? please register</Link>
                             </label>
+                            <h1 className='text-center text-xl text-green-600'>Login with</h1>
+                            <div className='flex justify-center items-center gap-8'>
+                                <img onClick={handleGoogleLogin} className='h-10 w-10' src="https://i.ibb.co/4WqgX2r/icons8-google-48.png" alt="" />
+                                <img onClick={handleGithubLogin} src="https://i.ibb.co/yQL3fCV/icons8-github-50.png" className='h-10 w-10' alt="" />
+                            </div>
                         </div>
                     </form>
                 </div>
