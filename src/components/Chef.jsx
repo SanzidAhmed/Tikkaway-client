@@ -1,6 +1,7 @@
 
 import ChefCard from './ChefCard';
 import { useLoaderData } from 'react-router-dom';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Chef = () => {
     const chefs = useLoaderData();
@@ -38,18 +39,19 @@ const Chef = () => {
                         </div>
                         <div className='mx-10'>
                             <div className='relative mt-20'>
-                                <img className='h-48 w-full rounded-md' src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                                <LazyLoadImage src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className='h-48 w-full rounded-md' alt="Image Alt" />
                                 <h1 className='absolute text-emerald-600 bg-slate-100 bottom-0 rounded-xl -left-10 w-96 text-lg p-2'>Roast Chicken With Lemon Gravy</h1>
                             </div>
                             <div className='relative mt-10 '>
-                                <img className='h-48 w-full rounded-md' src="https://images.unsplash.com/photo-1606884285898-277317a7bf12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80" alt="" />
+                                <LazyLoadImage src="https://images.unsplash.com/photo-1606884285898-277317a7bf12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80" className='h-48 w-full rounded-md' alt="Image Alt" />
                                 <h1 className='absolute text-emerald-600 w-96 bg-slate-100 bottom-0 rounded-xl -left-10  text-lg p-2'>Chocolate Cake With Green Tea Cream</h1>
                             </div>
                             <div className='relative mt-20'>
-                                <img className='h-48 w-full rounded-md' src="https://images.pexels.com/photos/2673353/pexels-photo-2673353.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+                                <LazyLoadImage src="https://images.pexels.com/photos/2673353/pexels-photo-2673353.jpeg?auto=compress&cs=tinysrgb&w=1600" className='h-48 w-full rounded-md' alt="Image Alt" />
+
                                 <h1 className='absolute text-emerald-600 w-96 bg-slate-100 bottom-0 rounded-xl -left-10 text-lg p-2'>Sweet Chilli and Lime Chicken Wings</h1>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

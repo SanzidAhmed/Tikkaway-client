@@ -1,6 +1,7 @@
 import React from 'react';
 import { HandThumbUpIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const ChefCard = ({ chef }) => {
     const { id, chefName, chefPicture, yearsExperience, likes, recipes, numRecipes } = chef;
@@ -9,8 +10,9 @@ const ChefCard = ({ chef }) => {
         <div>
             <div className="card md:w-96 bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
-                    <img src={chefPicture} alt="Shoes" className="rounded-xl md:h-48 md:w-full" />
+                    <LazyLoadImage className="rounded-xl md:h-48 md:w-full" src={chefPicture}  alt="Image Alt"/>
                 </figure>
+                
                 <div className="card-body items-center text-center">
                     <h2 className="card-title text-4xl text-yellow-400">{chefName}</h2>
                     <p><span className='font-bold'>Numbers of recipes: </span> {numRecipes}</p>
