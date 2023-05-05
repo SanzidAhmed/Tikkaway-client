@@ -12,7 +12,7 @@ const ChefDetails = () => {
     // }
     // console.log(chefRecipe);
     return (
-        <div className='container mx-auto pt-16'>
+        <div className='container mx-auto pt-16 '>
             <div className="card card-compact w-2/4 bg-base-100 shadow-xl mx-auto">
                 <figure><img src={chefPicture} alt="Shoes" className='w-screen h-96' /></figure>
                 <div className="card-body text-center">

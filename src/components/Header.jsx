@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import ActiveLink from './ActiveLink/ActiveLink';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -21,8 +22,8 @@ const Header = () => {
                     </div>
                     <div className="flex-none gap-6 md:gap-12 text-red-400 font-bold">
                         <Link to="/">Home</Link>
-                        <Link to="/blog">Blog</Link>
-                        {!user && <Link to="/login">Login</Link>}
+                        <ActiveLink to="/blog">Blog</ActiveLink>
+                        {!user && <ActiveLink to="/login">Login</ActiveLink>}
                         <div className="dropdown dropdown-end">
                             {user && <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
